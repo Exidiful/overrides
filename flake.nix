@@ -169,7 +169,6 @@
             ./.
           ];
         }; # nixos
-      }; # configurations
 
       devShells = forAllSystems (
         system:
