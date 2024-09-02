@@ -154,6 +154,21 @@
               ./modules/ssh
             ];
           }; # virtualis
+# Appended new system
+	nixos =
+       	let system = "x86_64-linux";
+	in nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            username = "exi";
+	    DE = "hyprland";
+            hostName = "nixos";
+            hyprlandConfig = "laptop";
+	    inherit system;
+          } // attrs;        
+          modules = [
+            ./.
+          ];
+        }; # nixos
       }; # configurations
 
       devShells = forAllSystems (
